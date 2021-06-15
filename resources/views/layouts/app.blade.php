@@ -63,7 +63,7 @@
                                             Users
                                         </a>
                                     @endif
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{ route('emails.contact') }}" class="dropdown-item">
                                             Emails
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

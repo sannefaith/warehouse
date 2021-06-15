@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'create'])->name('emails.contact');
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'send'])->name('emails.send');
