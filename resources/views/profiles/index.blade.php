@@ -8,7 +8,7 @@
 
                 <div class="header">
                     <h5 class="user-name ml-10"><strong><a href="#">{{ Auth::user()->name }}</a></strong></h5>
-                    <img class="user-name ml-7 rounded-circle" src="/storage/{{ $user->profile->image }}" alt="" width="200px" height="200px">
+                    <img class="user-name ml-7 rounded-circle" src="{{ $user->profile->profileImage() }}" alt="" width="200px" height="200px">
                 </div>
 
                 <div class="description">
@@ -22,6 +22,7 @@
                     @endcan
                     @endif
                     <p><strong>Bookmarks: </strong>2</p>
+
                 </div>
 
                 <div class="move-buttons ml-10">
@@ -46,7 +47,7 @@
                         <a href="/p/create"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Post</button></a>
                         @endcan
                         @endif
-                        
+
                         @can('update', $user->profile)
                         <a href="/profile/{{ $user->id }}/edit"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit Profile</button></a>
                         @endcan
@@ -57,6 +58,8 @@
 
             <hr class="mt-10 mb-10">
 
+            @if(auth()->user()->isOwner() || auth()->user()->isAdmin())
+            @can('update', $user->profile)
             <div class="flex items-center justify-center w-full mb-10">
                 <label for="toggleB" class="flex items-center cursor-pointer">
                     <div class="relative">
@@ -69,6 +72,9 @@
                     </div>
                 </label>
             </div>
+            @endcan
+            @endif
+
 
             <div class="grid grid-cols-3 gap-4">
 
