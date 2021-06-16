@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You can view the users!') }}
+
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@
                         <h5 class="mb-3"><strong>Description</strong></h5>
                         <p>{{ $user->profile->description }}</p>
                     </div>
-                    <p><strong>Posts: </strong>2</p>
+                    <p><strong>Posts: </strong>{{ $user->posts->count() }}</p>
                     <p><strong>Bookmarks: </strong>2</p>
                 </div>
 
@@ -37,7 +37,7 @@
                     </div>
                     <div class="mt-6 move-buttons">
                         <a href="/p/create"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Post</button></a>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit Profile</button>
+                        <a href="/profile/{{ $user->id }}/edit"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit Profile</button></a>
                     </div>
                 </div>
             </div>
@@ -58,15 +58,14 @@
             </div>
 
             <div class="grid grid-cols-3 gap-4">
+
+                @foreach( Auth::user()->posts as $post)
                 <div class="image">
-                    <img src="https://bit.ly/3xiuFNf" alt="">
+                    <a href="/p/{{ $post->id }}">
+                        <img src="/storage/{{ $post->image }}" alt="">
+                    </a>
                 </div>
-                <div class="image">
-                    <img src="https://bit.ly/3xiuFNf" alt="">
-                </div>
-                <div class="image">
-                    <img src="https://bit.ly/3xiuFNf" alt="">
-                </div>
+                @endforeach
             </div>
 
         </div>
