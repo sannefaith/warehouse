@@ -32,8 +32,8 @@
                                 <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">{{ $post->title }}</h4>
 
                                 <div class="mt-1 text-l font-semibold uppercase leading-tight">
-                                    $180,000
-                                    <span class="text-gray-600 text-sm"> /=</span>
+                                    $ {{ $post->price }}
+                                    <span class="text-gray-600 text-sm"> </span>
                                     <br>
                                     <div class="pt-3">
                                         <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Buy</span>

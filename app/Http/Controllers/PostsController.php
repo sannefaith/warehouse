@@ -25,6 +25,7 @@ class PostsController extends Controller
             'description' => 'required',
             'location' => 'required',
             'size' => 'required',
+            'price' => 'required',
             'image' => ['required','image'],
         ]);
 
@@ -38,6 +39,7 @@ class PostsController extends Controller
             'description' => $data['description'],
             'location' => $data['location'],
             'size' => $data['size'],
+            'price' => $data['price'],
             'image' => $imagePath,
         ]);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class ProfilesController extends Controller
@@ -39,10 +40,21 @@ class ProfilesController extends Controller
             'image' => '',
         ]);
 
-        auth()->user->profile->update($data);
+        // dd($data);
+        $user->profile->update($data);
 
         return redirect("/profile/{$user->id}");
 
     }
 
 }
+
+        
+
+// if(request('image'))
+// {
+//     $imagePath = request('image')->store('profile', 'public');
+
+//     $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
+//     $image->save();
+// }

@@ -16,7 +16,11 @@
                         <h5 class="mb-3"><strong>Description</strong></h5>
                         <p>{{ $user->profile->description }}</p>
                     </div>
+                    @if(auth()->user()->isOwner())
+                    @can('update', $user->profile)
                     <p><strong>Posts: </strong>{{ $user->posts->count() }}</p>
+                    @endcan
+                    @endif
                     <p><strong>Bookmarks: </strong>2</p>
                 </div>
 
@@ -36,10 +40,17 @@
 
                     </div>
                     <div class="mt-6 move-buttons">
+
+                        @if(auth()->user()->isOwner())
                         @can('update', $user->profile)
                         <a href="/p/create"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Post</button></a>
+                        @endcan
+                        @endif
+                        
+                        @can('update', $user->profile)
                         <a href="/profile/{{ $user->id }}/edit"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit Profile</button></a>
                         @endcan
+
                     </div>
                 </div>
             </div>
