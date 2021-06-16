@@ -8,7 +8,7 @@
 
                 <div class="header">
                     <h5 class="user-name ml-10"><strong><a href="#">{{ Auth::user()->name }}</a></strong></h5>
-                    <img class="user-name ml-7" src="https://bit.ly/3pDqitq" alt="" width="200px" height="200px">
+                    <img class="user-name ml-7 rounded-circle" src="/storage/{{ $user->profile->image }}" alt="" width="200px" height="200px">
                 </div>
 
                 <div class="description">

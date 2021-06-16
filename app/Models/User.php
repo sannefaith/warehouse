@@ -41,16 +41,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // protected static function boot()
-    // {
-    //     parent::boot();
+    protected static function boot()
+    {
+        parent::boot();
 
-    //     static::created(function($user) {
-    //         $user->profile()->create([
-    //             'description' => $user->username,
-    //         ]);
-    //     });
-    // }
+        static::created(function($user) {
+            $user->profile()->create([
+                'description' => $user->username,
+            ]);
+        });
+    }
 
     public function isAdmin()
     {

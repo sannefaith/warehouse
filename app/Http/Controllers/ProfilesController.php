@@ -13,7 +13,7 @@ class ProfilesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index(User $user)
     {
         // $user = User::findOrFail($user);
@@ -31,30 +31,29 @@ class ProfilesController extends Controller
     public function update(User $user)
     {
         # code...
+        global $imagePath;
         $this->authorize('update', $user->profile);
-        
+
         $data = request()->validate([
             'description' => 'required',
-            'phone' => ['required','numeric'],
+            'phone' => ['required', 'numeric'],
             'office' => 'required',
             'image' => '',
         ]);
 
+        if (request('image')) {
+            $imagePath = request('image')->store('profile', 'public');
+
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
+            $image->save();
+        }
+
         // dd($data);
-        $user->profile->update($data);
+        auth()->user()->profile->update(array_merge(
+            $data,
+            ['image' => $imagePath]
+        ));
 
         return redirect("/profile/{$user->id}");
-
     }
-
 }
-
-        
-
-// if(request('image'))
-// {
-//     $imagePath = request('image')->store('profile', 'public');
-
-//     $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
-//     $image->save();
-// }
