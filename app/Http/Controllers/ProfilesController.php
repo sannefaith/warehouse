@@ -22,20 +22,27 @@ class ProfilesController extends Controller
     public function edit(User $user)
     {
         # code...
+        $this->authorize('update', $user->profile);
+
         return view('profiles.edit', compact('user'));
     }
 
-    public function update()
+    public function update(User $user)
     {
         # code...
+        $this->authorize('update', $user->profile);
+        
         $data = request()->validate([
-            'description' => '',
-            'phone' => '',
-            'office' => '',
+            'description' => 'required',
+            'phone' => ['required','numeric'],
+            'office' => 'required',
             'image' => '',
         ]);
 
-        dd($data);
+        auth()->user->profile->update($data);
+
+        return redirect("/profile/{$user->id}");
+
     }
 
 }

@@ -27,7 +27,7 @@
                             <p><strong>Email: </strong></p>{{ Auth::user()->email }}
                         </div>
                         <div class="d-flex">
-                            <p> <strong>Phone: </strong></p>{{ $user->profile->phone }}
+                            <p> <strong>Phone: +</strong></p>{{ $user->profile->phone }}
                         </div>
                         <div class="d-flex">
                             <p> <strong>Office: </strong></p>{{ $user->profile->office }}
@@ -36,8 +36,10 @@
 
                     </div>
                     <div class="mt-6 move-buttons">
+                        @can('update', $user->profile)
                         <a href="/p/create"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Post</button></a>
                         <a href="/profile/{{ $user->id }}/edit"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit Profile</button></a>
+                        @endcan
                     </div>
                 </div>
             </div>

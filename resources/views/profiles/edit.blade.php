@@ -60,7 +60,7 @@
                                                     <textarea value="{{ old('phone') ?? $user->profile->phone }}" id="phone" name="phone" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder=""></textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
-                                                    
+                                                    Enter only numerical digits. Start with area code eg 254
                                                 </p>
                                             </div>
 

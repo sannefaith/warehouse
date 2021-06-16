@@ -46,6 +46,12 @@ class User extends Authenticatable
         return $this->role == 'admin';
     }
 
+    public function isOwner()
+    {
+        # code...
+        return $this->role == 'owner';
+    }
+
     public function profile()
     {
         return $this->hasOne(Profile::class);
