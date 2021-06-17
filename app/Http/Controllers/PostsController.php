@@ -13,6 +13,16 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        # code...
+        $users = auth()->user()->pluck('id');
+
+        $posts = Post::whereIn('id', $users)->latest()->get();
+
+        return view('posts.index', compact('posts'));
+    }
+
     public function create()
     {
         return view('posts.create');

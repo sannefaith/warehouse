@@ -9,6 +9,11 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -403,7 +408,8 @@
         @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-            <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+            <button class="btn btn-primary"><a href="/profile/{{ Auth::user()->id }}" class="text-sm text-gray-700 underline">My Profile</a></button>
+            <!--  url'/home'  -->
             @else
             <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
