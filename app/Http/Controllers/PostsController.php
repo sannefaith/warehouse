@@ -63,4 +63,9 @@ class PostsController extends Controller
         // dd($post);
         return view('posts.show', compact('post'));
     }
+
+    public function destroy()
+    {
+        //
+    }
 }

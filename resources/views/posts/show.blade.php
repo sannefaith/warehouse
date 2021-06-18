@@ -38,6 +38,9 @@
                                     <div class="pt-3">
                                         <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Buy</span>
                                         <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Bookmark</span>
+                                        @if(auth()->user()->isOwner())
+                                        <span class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"> Delete</span>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -48,13 +51,13 @@
 
                                 <div class="mt-4">
                                     <p class="text-teal-600 text-md font-semibold">Owner Info </p>
-                                    <p class="text-sm text-gray-600">Name: 
+                                    <p class="text-sm text-gray-600">Name:
                                         <a href="/profile/{{$post->user->id }}">{{ $post->user->name }}</a>
                                     </p>
                                     <p class="text-sm text-gray-600">Office: {{ $post->user->profile->office }}</p>
                                     <p class="text-sm text-gray-600">Email: {{ $post->user->email }}</p>
                                     <div class="pt-3">
-                                        <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Contact</span>
+                                        <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">CONTACT</span>
                                     </div>
                                 </div>
                             </div>
