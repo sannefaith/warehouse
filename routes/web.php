@@ -34,9 +34,11 @@ Route::get('/p/{post}',[App\Http\Controllers\PostsController::class, 'show']);
 Route::delete('/p/{post}', [App\Http\Controllers\PostsController::class, 'destroy'])->name('post.destroy');
 
 //Email Controllers
-Route::get('users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'create'])->name('emails.contact');
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'send'])->name('emails.send');
 Route::get('/email', function(){
     return new NewUserWelcomeMail();
 });
+
+//Admin Controllers
+Route::get('admin', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.index');

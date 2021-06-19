@@ -38,7 +38,7 @@
                                     <div class="pt-3">
                                         <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Buy</span>
                                         <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Bookmark</span>
-                                        @if(auth()->user()->isOwner())
+                                        @if(auth()->user()->isOwner() || auth()->user()->isAdmin())
                                         <span class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"> Delete</span>
                                         @endif
                                     </div>

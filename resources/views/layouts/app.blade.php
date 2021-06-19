@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">    
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -61,19 +61,22 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                @if(auth()->user()->isAdmin())
-                                <a href="{{ route('users.index') }}" class="dropdown-item">
-                                    Users
-                                </a>
-                                @endif
+
                                 @auth
-                                <a href="/profile/{{ Auth::user()->id }}" class="text-sm text-gray-700 dropdown-item">
+                                <a href="/profile/{{ Auth::user()->id }}" class="text-sm dropdown-item">
                                     My Profile
                                 </a>
                                 @endauth
+
                                 <a href="{{ route('emails.contact') }}" class="dropdown-item">
                                     Emails
                                 </a>
+
+                                @if(auth()->user()->isAdmin())
+                                <a href="{{ route('admins.index') }}" class="dropdown-item">
+                                    Admin
+                                </a>
+                                @endif
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -87,6 +90,7 @@
                         </li>
                         @endguest
                     </ul>
+
                 </div>
             </div>
         </nav>
