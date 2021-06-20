@@ -6,16 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
-class \RoleController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Role $role)
     {
-        //
+        $role = Role::all();
+        return view('admins.showRoles', ['roles' => $role]);
     }
 
     /**
@@ -25,7 +26,8 @@ class \RoleController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admins.createRoles');
     }
 
     /**
@@ -36,7 +38,15 @@ class \RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        // dd($request);
+
+        Role::create($request->only(['name']));
+
+        return redirect(route('admins.showRoles'))->withSuccess('Role created successfully');
     }
 
     /**
@@ -47,7 +57,9 @@ class \RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return view('admins.editRoles', [
+            'role' => $role,
+        ]);
     }
 
     /**
@@ -70,7 +82,14 @@ class \RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        // dd($request);
+        $role->update( $request->only(['name']));
+
+        return redirect(route('admins.showRoles'))->withSuccess('Role updated successfully');
     }
 
     /**
@@ -81,6 +100,9 @@ class \RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        // dd($request);
+        $role->delete( );
+
+        return redirect(route('admins.showRoles'))->withSuccess('Role deleted successfully');
     }
 }

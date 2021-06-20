@@ -31,7 +31,7 @@ Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::cla
 Route::get('/p/create',[App\Http\Controllers\PostsController::class, 'create']);
 Route::post('/p', [App\Http\Controllers\PostsController::class, 'store']);
 Route::get('/p/{post}',[App\Http\Controllers\PostsController::class, 'show']);
-Route::delete('/p/{post}', [App\Http\Controllers\PostsController::class, 'destroy'])->name('post.destroy');
+Route::get('/p/{post}/delete', [App\Http\Controllers\PostsController::class, 'destroy'])->name('post.destroy');
 
 //Email Controllers
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'create'])->name('emails.contact');
@@ -41,4 +41,14 @@ Route::get('/email', function(){
 });
 
 //Admin Controllers
-Route::get('admin', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.index');
+Route::middleware('auth')->prefix('admin')->group(
+    function(){
+    Route::get('/', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.index');
+    Route::get('/roles/create', [App\Http\Controllers\Admins\RoleController::class, 'create'])->name('admins.createRoles');
+    Route::post('/roles/store', [App\Http\Controllers\Admins\RoleController::class, 'store']);
+    Route::get('/roles/{role}/show',[App\Http\Controllers\Admins\RoleController::class, 'show'])->name('admins.editRoles');
+    Route::get('/roles', [App\Http\Controllers\Admins\RoleController::class, 'index'])->name('admins.showRoles');
+    Route::patch('/roles/{role}/update',[App\Http\Controllers\Admins\RoleController::class, 'update'])->name('admins.update');
+    Route::get('/roles/{role}',[App\Http\Controllers\Admins\RoleController::class, 'destroy'])->name('admins.destroy');
+
+});

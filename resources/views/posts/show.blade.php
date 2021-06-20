@@ -5,13 +5,6 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
-
-                <!-- <main>
-                    <div class="post">
-                        <img src="/storage/{{ $post->image }}" alt="">
-                    </div>
-                </main> -->
-
                 <div class="wrapper bg-gray-400 antialiased text-gray-900">
                     <div>
                         <div class="post">
@@ -39,7 +32,7 @@
                                         <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Buy</span>
                                         <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Bookmark</span>
                                         @if(auth()->user()->isOwner() || auth()->user()->isAdmin())
-                                        <span class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"> Delete</span>
+                                        <a href="/p/{{$post->id}}/delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</a>
                                         @endif
                                     </div>
                                 </div>

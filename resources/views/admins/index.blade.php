@@ -13,10 +13,46 @@
                     </div>
                     @endif
 
-                   @include('layouts.adminNavbar')
+                    <div class="grid grid-cols-3 gap-4">
 
-                   
-                    
+                        <div class="header">
+                            <h5 class="user-name ml-10"><strong><a href="#">{{ Auth::user()->name }}</a></strong></h5>
+                            <img class="user-name ml-7 rounded-circle" src="{{ auth()->user()->profile->profileImage() }}" alt="" width="200px" height="200px">
+                        </div>
+
+                        <div class="description">
+                            <div class="mb-5">
+                                <h5 class="mb-3"><strong>Description</strong></h5>
+                                <p>{{ auth()->user()    ->profile->description }}</p>
+                            </div>
+                            @if(auth()->user()->isOwner())
+                            @can('update', auth()->user() ->profile)
+                            <p><strong>Posts: </strong>{{ auth()->user()->posts->count() }}</p>
+                            @endcan
+                            @endif
+                        </div>
+
+                        <div class="move-buttons ml-10">
+                            <h5 class="mb-3"><strong>Contact Info</strong></h5>
+                            <div class="contact-info">
+                                <div class="d-flex">
+                                    <p><strong>Email: </strong></p>{{ Auth::user()->email }}
+                                </div>
+                                <div class="d-flex">
+                                    <p> <strong>Phone: +</strong></p>{{ auth()->user()->profile->phone }}
+                                </div>
+                                <div class="d-flex">
+                                    <p> <strong>Office: </strong></p>{{ auth()->user()->profile->office }}
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="mt-5">
+                   @include('layouts.adminNavbar')
+                   </div>
 
                 </div>
             </div>
