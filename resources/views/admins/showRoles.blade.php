@@ -17,7 +17,7 @@
 
                     <div class="mt-5">
                         <h2 class="text-xl fon-bold">Roles</h2>
-                        <p class="text-gray-500">Add, Edit new roles. <br> Roles can also be deleted but be careful as it would break functionality of its assignments.</p>
+                        <p class="text-gray-500">Add and Edit roles. <br> Roles can also be deleted but be careful as it would break functionality of its assignments.</p>
                         <p class="text-red-500">Admin and Owner roles cannot be edited or deleted.</p>
                     </div>
                     <div class="mt-3">

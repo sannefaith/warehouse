@@ -40,7 +40,7 @@ Route::get('/email', function(){
     return new NewUserWelcomeMail();
 });
 
-//Admin Controllers
+//Admin Role Controllers
 Route::middleware('auth')->prefix('admin')->group(
     function(){
     Route::get('/', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.index');
