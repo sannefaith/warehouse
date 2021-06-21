@@ -6,15 +6,15 @@
 
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
-                        <a href="{{ route('admins.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Admin Dash</a>
+                        <a href="{{ route('admins.index') }}">
+                            <img width="40px" height="40px" src="https://img.icons8.com/dusk/64/000000/admin-settings-male.png"/>
+                        </a>
 
                         <a href="{{ route('admins.users.showUsers') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Users</a>
 
                         <a href="{{ route('admins.owners.showOwners') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Owners</a>
 
                         <a href="{{ route('admins.showRoles') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Roles</a>
-
-                        <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Permissions</a>
                     </div>
                 </div>
             </div>
