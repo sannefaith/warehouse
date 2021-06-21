@@ -7,7 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminUserController extends Controller
+class OwnersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class AdminUserController extends Controller
      */
     public function index(User $user)
     {
-        $user = User::where('role', 'user')->orderBy('name')->paginate(6);
-
-        return view('admins.users.showUsers', ['users' => $user]);
+        $user = User::where('role', 'owner')->orderBy('name')->paginate(6);
+        // dd($user);
+        return view('admins.owners.showOwners', ['users' => $user]);
     }
 
     /**
@@ -50,7 +50,7 @@ class AdminUserController extends Controller
      */
     public function show(User $user)
     {
-        return view('admins.users.editUsers', [
+        return view('admins.owners.editOwners', [
             'user' => $user,
             'allRoles' => Role::all()
         ]);
@@ -77,7 +77,7 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        // $role = Role::where('name', $request->roles['user']['user']['name'])->first();
+         // $role = Role::where('name', $request->roles['user']['user']['name'])->first();
         // if($user->role != 'admin' && $role->name != 'user')
         // {
         //     $user->roles()->sync($role);
@@ -90,7 +90,7 @@ class AdminUserController extends Controller
         // dd($request);
         // $user->roles()->sync('role');
         $user->update( $request->only(['role']));
-        return redirect(route('admins.users.showUsers'));
+        return redirect(route('admins.owners.showOwners'));
     }
 
     /**
@@ -103,6 +103,6 @@ class AdminUserController extends Controller
     {
         $user->delete( );
 
-        return redirect(route('admins.users.showUsers'))->withSuccess('Role deleted successfully');
+        return redirect(route('admins.owners.showOwners'))->withSuccess('Owner deleted successfully');
     }
 }

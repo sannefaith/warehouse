@@ -31,7 +31,7 @@
                                                         <!-- <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
                                                             Property
                                                         </span> -->
-                                                        <input value="{{ old('caption') }}" type="text" name="title" id="title" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Property name">
+                                                        <input value="{{ old('caption') }}" type="text" name="title" id="title" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" placeholder="Property name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -41,7 +41,7 @@
                                                     Description
                                                 </label>
                                                 <div class="mt-1">
-                                                    <textarea value="{{ old('caption') }}" id="description" name="description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="This property has ..."></textarea>
+                                                    <textarea value="{{ old('caption') }}" id="description" name="description" rows="3" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" placeholder="This property has ..."></textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     Brief description of the property. URLs are hyperlinked.
@@ -53,7 +53,7 @@
                                                     Location
                                                 </label>
                                                 <div class="mt-1">
-                                                    <textarea value="{{ old('caption') }}" id="location" name="location" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder=""></textarea>
+                                                    <textarea value="{{ old('caption') }}" id="location" name="location" rows="3" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" placeholder=""></textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     Where is the warehouse located. Please be as precise as possible.
@@ -65,7 +65,7 @@
                                                     Size
                                                 </label>
                                                 <div class="mt-1">
-                                                    <textarea value="{{ old('caption') }}" id="size" name="size" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder=""></textarea>
+                                                    <textarea value="{{ old('caption') }}" id="size" name="size" rows="3" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" placeholder=""></textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     Size of the property in sq. feet
@@ -77,7 +77,7 @@
                                                     Price
                                                 </label>
                                                 <div class="mt-1">
-                                                    <textarea value="{{ old('caption') }}" id="price" name="price" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder=""></textarea>
+                                                    <textarea value="{{ old('caption') }}" id="price" name="price" rows="3" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" placeholder=""></textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     Price of the property in Dollars. Express in digits.

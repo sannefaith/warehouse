@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers;
+use App\Http\Controllers\Admins;
+use App\Http\Controllers\Admins\AdminUserController;
+use App\Http\Controllers\Admins\OwnersController;
 use App\Http\Controllers\ContactController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Route;
@@ -50,5 +54,23 @@ Route::middleware('auth')->prefix('admin')->group(
     Route::get('/roles', [App\Http\Controllers\Admins\RoleController::class, 'index'])->name('admins.showRoles');
     Route::patch('/roles/{role}/update',[App\Http\Controllers\Admins\RoleController::class, 'update'])->name('admins.update');
     Route::get('/roles/{role}',[App\Http\Controllers\Admins\RoleController::class, 'destroy'])->name('admins.destroy');
+
+});
+
+//Admin User Controllers
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::get('/users', [\App\Http\Controllers\Admins\AdminUserController::class, 'index'])->name('admins.users.showUsers');
+    Route::get('/users/{user}/show', [AdminUserController::class, 'show'])->name('admins.users.editUsers');
+    Route::get('/users/{user}', [App\Http\Controllers\Admins\AdminUserController::class, 'destroy'])->name('admins.users.destroy');
+    Route::patch('/users/{user}/update',[App\Http\Controllers\Admins\AdminUserController::class, 'update'])->name('admins.users.update');
+
+});
+
+//Admin Owner Controllers
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::get('/owners', [\App\Http\Controllers\Admins\OwnersController::class, 'index'])->name('admins.owners.showOwners');
+    Route::get('/owners/{user}/show', [OwnersController::class, 'show'])->name('admins.owners.editOwners');
+    Route::get('/owners/{user}',[App\Http\Controllers\Admins\OwnersController::class, 'destroy'])->name('admins.owners.destroy');
+    Route::patch('/owners/{user}/update',[App\Http\Controllers\Admins\OwnersController::class, 'update'])->name('admins.owners.update');
 
 });
