@@ -45,7 +45,7 @@ Route::get('/email', function(){
 });
 
 //Admin Role Controllers
-Route::middleware('auth')->prefix('admin')->group(
+Route::middleware('auth','admin', 'verified')->prefix('admin')->group(
     function(){
     Route::get('/', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.index');
     Route::get('/roles/create', [App\Http\Controllers\Admins\RoleController::class, 'create'])->name('admins.createRoles');
@@ -58,7 +58,7 @@ Route::middleware('auth')->prefix('admin')->group(
 });
 
 //Admin User Controllers
-Route::middleware('auth')->prefix('admin')->group(function(){
+Route::middleware('auth','admin', 'verified')->prefix('admin')->group(function(){
     Route::get('/users', [\App\Http\Controllers\Admins\AdminUserController::class, 'index'])->name('admins.users.showUsers');
     Route::get('/users/{user}/show', [AdminUserController::class, 'show'])->name('admins.users.editUsers');
     Route::get('/users/{user}', [App\Http\Controllers\Admins\AdminUserController::class, 'destroy'])->name('admins.users.destroy');
@@ -67,7 +67,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 });
 
 //Admin Owner Controllers
-Route::middleware('auth')->prefix('admin')->group(function(){
+Route::middleware('auth','admin', 'verified')->prefix('admin')->group(function(){
     Route::get('/owners', [\App\Http\Controllers\Admins\OwnersController::class, 'index'])->name('admins.owners.showOwners');
     Route::get('/owners/{user}/show', [OwnersController::class, 'show'])->name('admins.owners.editOwners');
     Route::get('/owners/{user}',[App\Http\Controllers\Admins\OwnersController::class, 'destroy'])->name('admins.owners.destroy');

@@ -86,4 +86,14 @@ class User extends Authenticatable
         # code...
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
     }
+
+    // public function hasAnyRoles(Role $roles)
+    // {
+    //     return $this->roles();
+    // }
+
+    // public function hasRole(Role $role)
+    // {
+    //     return $this->roles();
+    // }
 }
