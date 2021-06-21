@@ -12,7 +12,9 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "laravel/ui": "^3.3",
+        "munafio/chatify": "^1.2",
+        "pusher/pusher-php-server": "^7.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

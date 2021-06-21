@@ -73,6 +73,10 @@
                                     Emails
                                 </a>
 
+                                <a href="{{ route('chatify') }}" class="dropdown-item">
+                                    Messages
+                                </a>
+
                                 @if(auth()->user()->isAdmin())
                                 <a href="{{ route('admins.index') }}" class="dropdown-item">
                                     Admin
