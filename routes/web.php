@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 ;
-
+// i found an error here
 Auth::routes();
 
 //Home Controllers
