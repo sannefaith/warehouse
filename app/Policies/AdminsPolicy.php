@@ -17,7 +17,7 @@ class AdminsPolicy
      */
     public function __construct()
     {
-        //
+        //default contructor
     }
 
     public function isAdmin(Role $role)
