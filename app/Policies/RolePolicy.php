@@ -16,6 +16,6 @@ class RolePolicy
      */
     public function __construct()
     {
-        //
+        //Default Constructor
     }
 }
