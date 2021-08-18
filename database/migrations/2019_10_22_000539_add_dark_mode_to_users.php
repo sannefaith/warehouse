@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class AddDarkModeToUsers extends Migration
 {
+    //adds dark mode to users
     /**
      * Run the migrations.
      *
