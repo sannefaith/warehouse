@@ -19,7 +19,7 @@ class CreatePasswordResetsTable extends Migration
             $table->timestamp('created_at')->nullable();
         });
     }
-
+// this is password reset
     /**
      * Reverse the migrations.
      *
