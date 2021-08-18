@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChFavorite extends Model
 {
-    //
+    //relevant functions
 }
