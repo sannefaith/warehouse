@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use Illuminate\Database\Seeder;
-
+//make class
 class RoleSeeder extends Seeder
 {
     /**
