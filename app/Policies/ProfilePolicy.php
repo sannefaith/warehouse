@@ -18,7 +18,7 @@ class ProfilePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        //default
     }
 
     /**
