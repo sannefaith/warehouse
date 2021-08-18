@@ -22,7 +22,7 @@ class CreateFavoritesTable extends Migration
             $table->primary('id');
         });
     }
-
+//this table is currently not being utilised :ignore
     /**
      * Reverse the migrations.
      *
